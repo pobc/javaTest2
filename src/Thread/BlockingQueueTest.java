@@ -8,10 +8,6 @@ import java.util.concurrent.*;
  * Created by jiang on 2017/8/28.
  */
 public class BlockingQueueTest {
-    private static final int FILE_QUEUE_SIZE = 10;
-    private static final int SEARCH_THREADS = 100;
-    private static final File DUMMY = new File("");
-    private static BlockingQueue<File> queue = new ArrayBlockingQueue<>(FILE_QUEUE_SIZE);
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);

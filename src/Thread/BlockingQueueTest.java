@@ -31,6 +31,11 @@ public class BlockingQueueTest {
 }
 
 
+/**
+ * fdsjflksdjf
+ * I can to s
+ * }
+ */
 class FileEnumerationTask implements Runnable {
     public static File DUMMY = new File("");
     private BlockingQueue<File> queue;
@@ -60,8 +65,10 @@ class FileEnumerationTask implements Runnable {
             InterruptedException {
         File[] files = directory.listFiles();
         for (File file : files) {
-            if (file.isDirectory()) enumerate(file);
-            else queue.put(file);
+            if (file.isDirectory())
+                enumerate(file);
+            else
+                queue.put(file);
         }
     }
 }
@@ -89,7 +96,8 @@ class SearchTask implements Runnable {
                 if (file == FileEnumerationTask.DUMMY) {
                     queue.put(file);
                     done = true;
-                } else search(file);
+                } else
+                    search(file);
             }
         } catch (IOException e) {
             e.printStackTrace();

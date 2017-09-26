@@ -26,7 +26,7 @@ abstract class Accumulator {
     protected volatile long value = 0;
     protected long duration = 0;
     protected String id = "error";
-    protected final static int SIZE = 100000;
+    protected final static int SIZE = 1000000;
     protected static int[] preLoaded = new int[SIZE];
 
     static {
@@ -81,8 +81,7 @@ abstract class Accumulator {
         System.out.printf("%-13s: %13d\n", id, duration);
     }
 
-    public static void
-    report(Accumulator acc1, Accumulator acc2) {
+    public static void report(Accumulator acc1, Accumulator acc2) {
         System.out.printf("%-22s: %.2f\n", acc1.id + "/" + acc2.id,
                 (double) acc1.duration / (double) acc2.duration);
     }
@@ -109,6 +108,7 @@ class SynchronizedTest extends Accumulator {
     }
 
     public synchronized void accumulate() {
+
         value += preLoaded[index++];
         if (index >= SIZE) index = 0;
     }
@@ -176,7 +176,7 @@ public class SynchronizationComparisons {
     static AtomicTest atomic = new AtomicTest();
 
     static void test() {
-        System.out.print("============================");
+        System.out.println("============================");
         System.out.printf("%-12s : %13d\n", "Cycles", Accumulator.cycles);
         baseLine.timedTest();
         synch.timedTest();
@@ -196,7 +196,7 @@ public class SynchronizationComparisons {
             iterations = new Integer(args[0]);
 // The first time fills the thread pool:
         System.out.print("Warmup");
-        baseLine.timedTest();
+        //baseLine.timedTest();
 // Now the initial test doesn’t include the cost
 // of starting the threads for the first time.
 // Produce multiple data points:

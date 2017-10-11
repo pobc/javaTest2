@@ -52,10 +52,10 @@ public abstract class Tester<C> {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.printf("%-27s %14d %14d\n", testId, readTime, writeTime);
+        System.out.printf("%-27s %14d %14d\n", testId, readTime/1000/1000, writeTime/1000/1000);
 
         if (readTime != 0 && writeTime != 0)
-            System.out.printf("%-27s %14d\n", "readTime + writeTime =", readTime + writeTime);
+            System.out.printf("%-27s %14d\n", "readTime + writeTime =", readTime/1000/1000 + writeTime/1000/1000);
     }
 
     abstract class TestTask implements Runnable {

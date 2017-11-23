@@ -35,5 +35,7 @@ public class StringTest {
         operate(A,B);
         System.out.println(a+","+b);
         System.out.println(A+","+B);
+
+        System.out.println(System.nanoTime()/(Math.pow(1000,3)));
     }
 }

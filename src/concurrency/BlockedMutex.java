@@ -38,7 +38,7 @@ class Blocked2 implements Runnable {
         System.out.println("Broken out of blocked call");
     } }
  class Interrupting2 {
-    public static void main(String[] args) throws InterruptedException {
+    public  static void main(String[] args) throws InterruptedException {
         Thread t = new Thread(new Blocked2());
         t.start();
         TimeUnit.SECONDS.sleep(1);
